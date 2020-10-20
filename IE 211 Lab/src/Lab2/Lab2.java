@@ -10,7 +10,7 @@ public class Lab2 {
 		// TODO Auto-generated method stub
 
 		Random rand = new Random();
-		
+			
 		// SUBSET GENERATION ALGORITHM 
 		
 		// STEP 1: Create input instance randomly 
@@ -28,6 +28,7 @@ public class Lab2 {
 		Subset mySubsets = new Subset();
 		
 		mySubsets.GenerateSubsets(set);
+		
 		
 		
 		
@@ -49,7 +50,6 @@ public class Lab2 {
 //		
 //		Sort insertionSort = new Sort();
 //		insertionSort.InsertionSort(nValues);	
-
 
 	}
 

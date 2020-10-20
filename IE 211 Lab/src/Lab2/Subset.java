@@ -1,6 +1,5 @@
 package Lab2;
 
-import java.util.BitSet;
 import java.util.Vector;
 import java.time.Clock; 
 
@@ -32,7 +31,7 @@ public class Subset {
 //		// test the Binary() function 
 //		Binary(12);
 //		
-//		for(int i = 0; i< binVal.size(); i++)
+//		for(int i = binVal.size() - 1; i >= 0; i--)
 //			System.out.print(binVal.get(i) + " ");
 //		
 //		// end of test
