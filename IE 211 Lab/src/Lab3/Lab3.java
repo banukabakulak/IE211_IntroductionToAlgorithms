@@ -23,8 +23,8 @@ public class Lab3 {
 		
 		System.out.println();
 		
-//		Difference myDiff = new Difference();
-//		myDiff.printDifferentElements(array1, array2);
+		Difference myDiff = new Difference();
+		myDiff.printDifferentElements(array1, array2);
 
 	}
 
