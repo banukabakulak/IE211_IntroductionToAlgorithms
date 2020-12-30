@@ -31,7 +31,6 @@ public class Lab6 {
 		 
 		 DataStructures myData = new DataStructures();
 		 myData.ImplementAlgorithm();
-
 	}
 
 }

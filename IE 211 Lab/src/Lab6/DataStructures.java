@@ -302,8 +302,7 @@ public class DataStructures {
 	}
 	
 	public void ImplementAlgorithm()
-	{
-		
+	{		
 		DataTypes();
 
 		// data structures

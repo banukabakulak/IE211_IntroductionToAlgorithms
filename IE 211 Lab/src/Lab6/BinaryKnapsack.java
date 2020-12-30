@@ -85,8 +85,7 @@ public class BinaryKnapsack {
 		System.out.println();
 		System.out.println("The item selections are ");
 		for(int i = 0; i < x.length; i++)
-			System.out.print(x[i] + " ");
-		
+			System.out.print(x[i] + " ");	
 	}
 	
 	public void ImplementKnapsack(int[] values, int[] volumes, int totalVolume)
