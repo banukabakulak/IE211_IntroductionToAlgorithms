@@ -3,12 +3,9 @@ package Lab6;
 import java.util.Random;
 
 public class Lab6 {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		System.out.println("Hello world!");
-		
+	
+	public static void SolveBinaryKnapsack()
+	{
 		int[] values = {3, 2, 8, 6}; 
 		int[] volumes = {2, 4, 3, 5};
 		
@@ -28,9 +25,26 @@ public class Lab6 {
 		
 		 BinaryKnapsack myKnapsack = new BinaryKnapsack();
 		 myKnapsack.ImplementKnapsack(values, volumes, totalVolume);
-		 
+	}
+	
+	public static void ImplementDataStructures()
+	{
 		 DataStructures myData = new DataStructures();
 		 myData.ImplementAlgorithm();
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Hello world!");
+		
+//		// Lab 7 Codes 		
+//		SolveBinaryKnapsack();
+		
+		
+		// Lab 8 Codes 	
+		ImplementDataStructures();
+		 
 	}
 
 }

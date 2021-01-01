@@ -303,13 +303,13 @@ public class DataStructures {
 	
 	public void ImplementAlgorithm()
 	{		
-		DataTypes();
-
-		// data structures
-		
-		ArrayTest();
+//		DataTypes();
+//
+//		// data structures
+//		
+//		ArrayTest();
 		 
-		LinkedListTest();
+//		LinkedListTest();
 		
 		StackTest();
 		
