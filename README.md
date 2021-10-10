@@ -4,7 +4,7 @@ This is the repository for the Java codes of IE 211 Introduction to Algorithms c
 
 > **Instructor Information:**
 
-**Instructor:** Banu Kabakulak   
+**Instructor:** Banu Kabakulak, PhD
 	                     
 **e-mail:** banu.kabakulak@bilgi.edu.tr		
 
@@ -31,7 +31,8 @@ Upon successful completion of the course, students will be able to;
 
 > **Required texts:**
 
-1.	Introduction to Algorithms, Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein, MIT Press, 2009, 3rd ed. ![Book](https://images-eu.ssl-images-amazon.com/images/I/61uRpcdPhNL._AC_UL116_SR116,116_.jpg)
+1.	Introduction to Algorithms, Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein, MIT Press, 2009, 3rd ed. 
+![Book](https://images-eu.ssl-images-amazon.com/images/I/61uRpcdPhNL._AC_UL116_SR116,116_.jpg)
 
 2.	Algorithms in Java, Robert Sedgewick, Addison Wesley,2002, 3rd ed.
 
