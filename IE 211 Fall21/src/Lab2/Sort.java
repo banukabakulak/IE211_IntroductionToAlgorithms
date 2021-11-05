@@ -1,18 +1,21 @@
 package Lab2;
-import java.time.Clock; 
+
+import java.time.Clock;
 
 public class Sort {
 	
-	 public long runTime;
+	public long runTime;
 	
-	 public int totalIter = 0;
-	
+	public int totalIter = 0;
+
 	public Sort() {}
 	
-	public void InsertionSort(int[] nValues)
-	{		
+	public void ImplementAlgorithm(int[] nValues)
+	{
+		// start clock 
+		
 		Clock clock = Clock.systemDefaultZone();
-		runTime  = clock.millis();
+		runTime = clock.millis();
 		
 		for(int j = 1; j < nValues.length; j++)
 		{
@@ -20,28 +23,28 @@ public class Sort {
 			
 			int i = j - 1;
 			
-			while(i >= 0 && nValues[i] > key)
+			while(i >= 0 && nValues[i]> key)
 			{
-				nValues[i + 1] = nValues[i];
+				nValues[i + 1] = nValues[i];				
 				i--;
 				totalIter++;
 			}
 			
-			nValues[i + 1] = key; 
+			nValues[i + 1] = key;
 		}
 		
+		// stop clock 
 		runTime = clock.millis() - runTime;
 		
 		System.out.println();
 		System.out.println("The sorted array is: ");
 		
-		for(int i = 0; i < nValues.length; i++)
+		for(int i = 0; i < nValues.length; i++)			
 			System.out.print(nValues[i] + " ");
 		
 		System.out.println();
-		
-		System.out.println("Total iterations: " + totalIter + " The runtime: " + runTime);
-			
-	}
+		System.out.println("Total iterations: " + totalIter);
+		System.out.println("The runtime is: " + runTime + " msecs");
 
+	}
 }
