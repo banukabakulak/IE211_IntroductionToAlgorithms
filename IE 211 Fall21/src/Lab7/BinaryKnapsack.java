@@ -59,19 +59,16 @@ public class BinaryKnapsack {
 				}
 			}	
 		
-		for(int w = 0; w <= totalVolume; w++)
-		{
-			int currVolume = totalVolume;
-			
-			for(int i = values.length - 1; i >= 0; i--)
-				if(selectDecision[i][currVolume] > 0)
-				{
-					currVolume -= volumes[i];					
-					x[i] = 1;	
-				}
-				else
-					x[i] = 0;
-		}
+		int currVolume = totalVolume;
+		
+		for(int i = values.length - 1; i >= 0; i--)
+			if(selectDecision[i][currVolume] > 0)
+			{
+				currVolume -= volumes[i];					
+				x[i] = 1;	
+			}
+			else
+				x[i] = 0;
 		
 		runTime = clock.millis() - runTime;
 		
