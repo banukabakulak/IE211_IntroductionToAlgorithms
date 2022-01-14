@@ -8,10 +8,12 @@ import java.util.Stack;
 
 public class DataStructures {
 	
-	public class Point
+	public DataStructures() {}
+	
+	private class Point
 	{
-		double x;
-		double y;
+		private double x = 4;
+		private double y = 1;
 		
 		public void printCoordinates()
 		{
@@ -20,82 +22,44 @@ public class DataStructures {
 		
 		public void updateCoordinates()
 		{
-			x = 2 * x;
-			y = 3 * y;
+			x = 2*x;
+			y = 3*y;
 			System.out.println("the updated coordinates of the point are (" + x + ", " + y + ")");
 		}
+		
 	};
 	
 	private void DataTypes()
 	{
-		// data types
+		boolean boolVar = true;
+		char character = 0x2F; // 35; //'a'; // '5'; '!';
 		
-				boolean boolVar = true;
-				char character = 'a'; // '5', '!'
-				String myString = "'Hello world!'";
-				byte byteVar = 4;
-				short shortVar = 10;
-				int intVar = 100;
-				long longVar = 10000;
-				float floatVar = (float)10.34;
-				double doubleVar = 100.56;
-				
-				Point myPoint = new Point();
-				myPoint.x = 3.5;
-				myPoint.y = 5.8;
-				
-				myPoint.printCoordinates();
-				myPoint.updateCoordinates();
-				
-				System.out.println();
-				System.out.println("the coordinates of the point are (" + myPoint.x + ", " + myPoint.y + ")");
-				System.out.println();
-				System.out.println("My string is " + myString);
-				
-				//String.format("%.2f", x)
-				
-				System.out.println(boolVar);
-				
-				System.out.println(character);
-				
-				byteVar = 0;
-				for(int i = 0; i < 300; i++)
-				{
-					System.out.print((byteVar < 0 ? 256 + byteVar : byteVar) + " ");
-					byteVar++;
-				}
-				
-				System.out.println();
-				System.out.println("short numbers ");
-				
-				shortVar = 0;
-				for(int i = 0; i < 6622; i++)
-				{
-					//System.out.print(i + " ");
-					System.out.print(shortVar + " ");
-					//System.out.print((shortVar < 0 ? 65536 + shortVar : shortVar) + " ");
-					shortVar++;
-				}
-				
-				System.out.println();
-				System.out.println("int numbers ");
-				//System.out.print(shortVar);
-				
-				//System.out.println(intVar);
-				
-				System.out.println();
-				
-				for(int i = 0; i < 6622; i++)
-				{
-					System.out.print(i + " ");
-				}
-				
-				
-				System.out.println(longVar);
-
-				System.out.println(floatVar);
-				
-				System.out.println(doubleVar);
+		System.out.println("the bool data is " + boolVar);
+		System.out.println("the char data is " + character);
+		
+		String myString = "'Hello World!'";
+		
+		System.out.println("the string data is " + myString);
+		
+		byte byteVar = 127; // 8-bit 		
+		System.out.println("the byte data is " + byteVar);
+		
+		short shortVar = 32767; // 16-bit 		
+		System.out.println("the short data is " + shortVar);
+		
+		int intVar = 2147483647; // 32-bit 		
+		System.out.println("the int data is " + intVar);
+		
+		long longVar = 21474836; //9223372036854775807; // 64-bit 		
+		System.out.println("the long data is " + longVar);
+		
+		double floatVar = 10.56;  // 32-bit
+		double doubleVar = 100.56;  // 64-bit
+		
+		Point myPoint = new Point();
+		
+		myPoint. printCoordinates();
+		myPoint.updateCoordinates();	
 	}
 	
 	private void ArrayTest()
@@ -103,219 +67,211 @@ public class DataStructures {
 		int[] intArray = new int[3];
 		double[] doubleArray = new double[14];
 		
-		// the size of the array cannot change in the runtime of the code. 
+		intArray[0] = 3;
+		intArray[1] = 5;
+		intArray[2] = 6;
 		
-		intArray[0] = 4;
-		intArray[1] = 3;
-		intArray[2] = 8;
-		
+		System.out.println("the array is ");
 		for(int i = 0; i < intArray.length; i++)
-			System.out.println("the " + i + "th element of the array is " + intArray[i]);
+			System.out.print(intArray[i] + " ");		
 	}
 	
 	private void LinkedListTest()
 	{
-
-		LinkedList<String> object = new LinkedList<String>(); 
+		LinkedList<String> object = new LinkedList<String>();
 		
-		 // Adding elements to the linked list 
-        object.add("A"); 
-        object.add("B"); 
-        object.addLast("C"); 
-        object.addFirst("D"); 
-        object.add(2, "E"); 
-        object.add("F"); 
-        object.add("G"); 
-        System.out.println("Linked list : " + object); 
-  
-        // Removing elements from the linked list 
-        object.remove("B"); 
-        object.remove(3); 
-        object.removeFirst(); 
-        object.removeLast(); 
-        System.out.println("Linked list after deletion: " + object); 
-  
-        // Finding elements in the linked list 
-        boolean status = object.contains("E"); 
-  
-        if(status) 
-            System.out.println("List contains the element 'E' "); 
-        else
-            System.out.println("List doesn't contain the element 'E'"); 
-  
-        // Number of elements in the linked list 
-        int size = object.size(); 
-        System.out.println("Size of linked list = " + size); 
-  
-        // Get and set elements from linked list 
-        Object element = object.get(2); 
-        System.out.println("Element returned by get() : " + element); 
-        object.set(2, "Y"); 
-        System.out.println("Linked list after change : " + object); 
-        
-        
-        //iterating over the elements of the list
+		
+		// INSERT, O(n)-time
+		object.add("A");
+		object.add("B");
+		object.addLast("C");
+		object.addFirst("D"); // head insertion, O(1)-time
+		object.add(2, "E");
+		object.add("F");
+		object.add("G");
+		
+		System.out.println("Linked list is " + object);
+		
+		
+		// REMOVE, O(n)-time
+		object.remove("B");
+		object.remove(3);
+		object.removeFirst();
+		object.removeLast();
 
-        System.out.println("Iterating over the list with forEach() method of list ");
-        object.forEach(item -> {
-        	System.out.print(item + " ");
-        });
-        
-        System.out.println();
-        System.out.println("Iterating over the list with iterator() method of list ");
-        // only traverse in forward direction.
-        Iterator<String> strIterator = object.iterator();
-        while(strIterator.hasNext())
-        {
-        	String item = strIterator.next();
-        	System.out.print(item + " ");
-        }
-       
-        System.out.println();
-        System.out.println("Iterating over the list with listIterator() method of list");
-        // ListIterator allows to traverse both in forward and backward directions.
-        ListIterator<String> strListIterator = object.listIterator(object.size());
-        while(strListIterator.hasPrevious())
-        {
-        	String item = strListIterator.previous();
-        	System.out.print(item + " ");
-        }
+		System.out.println("Linked list is " + object);
+		
+		//SEARCH, O(n)-time
+		
+		boolean status = object.contains("E");
+		
+		if(status)
+			System.out.println("list contains element 'E' ");
+		else
+			System.out.println("list does not contain element 'E' ");
+		
+		// number of elements in the linked list
+		System.out.println("size of the linked list " + object.size());
+		
+		// get and set the elements form linked list
+		
+		//String currString = object.get(2);
+		
+		Object element = object.get(2);
+		
+		System.out.println("the current element is " + element);
+		
+		object.set(2, "Y");
+		System.out.println("Linked list after change is " + object);
+		
+		
+		//iterate over the elements of the list
+		
+		//1st way: FOREACH()
+		
+		System.out.println("Iterate over the list with forEach() method");
+		
+		object.forEach(item -> {System.out.println("the current element is " + item);} );
+		
+		//2nd way: ITERATOR(), only traverse in forward direction.
+		System.out.println("Iterate over the list with iterator() method");
+		
+		Iterator<String> strIterator = object.iterator();
+		
+		while(strIterator.hasNext())		
+		{
+			String item = strIterator.next();
+			System.out.print(item + " ");
+		}
+		
+		// 3rd way: ListIterator(), allows forward and backward directions
+		System.out.println();
+		System.out.println("Iterating over the linked list with ListIterator() method ");
+		ListIterator<String> strListIterator = object.listIterator(object.size());
+		
+		while(strListIterator.hasPrevious())		
+		{
+			String item = strListIterator.previous();
+			System.out.print(item + " ");
+		}
 	}
-	
+
 	private void StackTest()
 	{
-		 Stack<String> stack = new Stack<String>(); 
-		 
-		 // Pushing (adding) element on the top of the stack 
-		 stack.push("Book 1");
-		 stack.push("Book 2");
-		 stack.push("Book 3");
-		 stack.push("Book 4");
-		 
-		 System.out.println("Stack is " + stack);
-		 
-		 // Popping (removing) element from the top of the stack 
-		 try {
-			 String bookAtTop = stack.pop();  //Throws EmptyStackException is the stack is empty.
-			 System.out.println("Stack.pop() is " + bookAtTop);
-			 System.out.println("Stack after pop() is " + stack);
-			 System.out.println();
-		 }
-		 catch(Exception e)
-		 {
-			 System.out.println(e.getMessage());
-		 }
-		 
-		// Displaying (w/o deletion) element on the top of the stack 		 
-		 String bookAtTop = stack.peek();
-		 System.out.println("Stack.peek() is " + bookAtTop);
-		 System.out.println("Stack after peek() is " + stack);
-		 
-		 // check if the stack is empty
-		 System.out.println("Is stack empty?  " + stack.isEmpty());
-		 
-		 // find the size of the stack
-		 System.out.println("Size of the stack is " + stack.size());
-		 
-		 // search for an element 
-		 // the search() method of stack returns 1-based position from the top of the stack, or -1 if the element is not in the stack.
-	
-		 int position = stack.search("Book 3");
-		 if(position == -1)
-			 System.out.println("The element is not in the stack!");
-		 else 
-			 System.out.println("The element \"Book 3\" is at position: " + position);
-		 
-		 position = stack.search("Book 5");
-		 if(position == -1)
-			 System.out.println("The element is not in the stack!");
-		 else 
-			 System.out.println("The element \"Book 5\" is at position: " + position);
-		 
-        //iterating over the elements of the list
-
-        System.out.println("Iterating over the list with forEach() method of list ");
-        stack.forEach(item -> {
-        	System.out.print(item + " ");
-        });
-        
-        System.out.println();
-        System.out.println("Iterating over the list with iterator() method of list ");
-        // only traverse in forward direction.
-        Iterator<String> strIterator = stack.iterator();
-        while(strIterator.hasNext())
-        {
-        	String item = strIterator.next();
-        	System.out.print(item + " ");
-        }
-       
-        System.out.println();
-        System.out.println("Iterating over the list with listIterator() method of list");
-        // ListIterator allows to traverse both in forward and backward directions.
-        ListIterator<String> strListIterator = stack.listIterator(stack.size());
-        while(strListIterator.hasPrevious())
-        {
-        	String item = strListIterator.previous();
-        	System.out.print(item + " ");
-        }
-	 
-		 
+		Stack<String> stack = new Stack<String>();
+		
+		stack.push("Book 1");
+		stack.push("Book 2");
+		stack.push("Book 3");
+		stack.push("Book 4");
+		
+		System.out.println("Stack is " + stack);
+		
+		// Remove the top element and return it 
+		String bookAtTop = stack.pop();
+		System.out.println("the book at the top is " + bookAtTop);
+		System.out.println("After pop() the stack is " + stack);
+		
+		// get top element w/o deleting 
+		bookAtTop = stack.peek();
+		System.out.println("the book at the top is " + bookAtTop);
+		System.out.println("After peek() the stack is " + stack);
+		
+		// is stack empty
+		System.out.println("Is stack empty? " + stack.isEmpty());
+		
+		// find the size of stack 
+		System.out.println("Size of the stack is " + stack.size());
+		
+		// search for an element		
+		int position = stack.search("Book 3");
+		if(position == -1)
+			System.out.println("The element is not in the stack!");
+		else 
+			System.out.println("The position of 'Book 3' is " + position);
+		
+		position = stack.search("Book 5");
+		if(position == -1)
+			System.out.println("The element is not in the stack!");
+		else 
+			System.out.println("The position of 'Book 5' is " + position);
+		
+		// iterate over elements of stack
+		
+		//1st way: FOREACH()
+		
+		System.out.println("Iterate over the list with forEach() method");
+		
+		stack.forEach(item -> {System.out.println("the current element is " + item);} );
+		
+		//2nd way: ITERATOR(), only traverse in forward direction.
+		System.out.println("Iterate over the list with iterator() method");
+		
+		Iterator<String> strIterator = stack.iterator();
+		
+		while(strIterator.hasNext())		
+		{
+			String item = strIterator.next();
+			System.out.print(item + " ");
+		}
+		
+		// 3rd way: ListIterator(), allows forward and backward directions
+		System.out.println();
+		System.out.println("Iterating over the linked list with ListIterator() method ");
+		ListIterator<String> strListIterator = stack.listIterator(stack.size());
+		
+		while(strListIterator.hasPrevious())		
+		{
+			String item = strListIterator.previous();
+			System.out.print(item + " ");
+		}
+		
 	}
 	
 	private void QueueTest()
 	{
-		//We cannot create instance of a Queue since it is an interface, thus we
 		Queue<String> queue = new LinkedList<String>();
 		
-		//Adding elements to the Queue
+		// ADD elements 
+		
 		queue.add("Product 1");
 		queue.add("Product 2");
 		queue.add("Product 3");
+		queue.add("Product 4");
 		
-		// add elements to the queue using offer() - returns true/false 
-		System.out.println("\"Product 4\" inserted successfully? " + queue.offer("Product 4"));
-		System.out.println("\"Product 5\" inserted successfully? " + queue.offer("Product 5"));
+		System.out.println("Queue is " + queue);
 		
-		System.out.println("Elements in Queue:"+ queue);
+		System.out.println("Is 'Product 5' included successfully? " + queue.offer("Product 5"));
 		
-		//We can remove an element from Queue using remove() method, this removes the first element from the Queue
-		System.out.println("Removed element: "+ queue.remove());
 		
-		//element() method - this returns the head of the Queue.
-		System.out.println("Head: "+ queue.element());
+		// poll and remove are equivalent...
+		System.out.println("Removed element " + queue.remove());
 		
-		//poll() method - this removes and returns the head of the Queue. Returns null if the Queue is empty
-		System.out.println("poll(): "+ queue.poll());
+		System.out.println("poll() element " + queue.poll());
 		
-		//peek() method - it works same as element() method, however, it returns null if the Queue is empty
-		System.out.println("peek(): "+ queue.peek());
+		// w/o head removal get the head 
+		System.out.println("Head element " + queue.element());
 		
-		//Displaying the elements of Queue
-		System.out.println("Elements in Queue:"+ queue);
+		System.out.println("peek() element " + queue.peek());
+
+		System.out.println("Is 'Product 5' included in the queue? " + queue.contains("Product 5"));
 		
-		//check an element in the queue
-		System.out.println("Does the queue contain \"Product 1\"? "+ queue.contains("Product 1"));
-		System.out.println("Does the queue contain \"Product 4\"? "+ queue.contains("Product 4"));
-		
-		// check the queue is empty
-		System.out.println("Is the queue empty? "+ queue.isEmpty());
+		System.out.println("Is the queue empty? " + queue.isEmpty());
 	}
 	
 	public void ImplementAlgorithm()
-	{		
+	{
 //		DataTypes();
-//
-//		// data structures
 //		
 //		ArrayTest();
-		 
+		
 //		LinkedListTest();
 		
-		StackTest();
+//		StackTest();
 		
 		QueueTest();
 		
-		
 	}
+	
 
 }
