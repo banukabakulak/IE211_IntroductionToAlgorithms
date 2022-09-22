@@ -1,6 +1,6 @@
 # IE211_IntroductionToAlgorithms
 
-This is the repository for the Java codes of IE 211 Introduction to Algorithms course....
+This is the repository for the Java/Python codes of IE 211 Introduction to Algorithms course....
 
 > **Instructor Information:**
 
@@ -11,7 +11,7 @@ This is the repository for the Java codes of IE 211 Introduction to Algorithms c
 
 > **Course Description:** 
 
-In this course, design, implementation, and analysis of algorithms are discussed at the introductory level. The course covers basic algorithm design techniques, analysis of the correctness and the efficiency of algorithms, and issues regarding implementation of algorithms. The course introduces the elementary data structures which can be utilized in the algorithms.  In this course, the students design the algorithms with Java programming language in Eclipse environment. The course aims to equip the students with the ability of efficient algorithm design and academic presentation of the algorithms.
+In this course, design, implementation, and analysis of algorithms are discussed at the introductory level. The course covers basic algorithm design techniques, analysis of the correctness and the efficiency of algorithms, and issues regarding implementation of algorithms. The course introduces the elementary data structures which can be utilized in the algorithms.  In this course, the students design the algorithms with Python programming language in PyCharm environment. The course aims to equip the students with the ability of efficient algorithm design and academic presentation of the algorithms.
 
 > **Course Objectives:** 
 
@@ -39,9 +39,9 @@ Upon successful completion of the course, students will be able to;
 
 > **Softwares:**
 
-*Java programming language* and [Eclipse](https://www.eclipse.org/downloads/) IDE or [IntelliJ](https://www.jetbrains.com/idea/) IDEA will be used for the implementation of algorithms. 
+<!--*Java programming language* and [Eclipse](https://www.eclipse.org/downloads/) IDE or [IntelliJ](https://www.jetbrains.com/idea/) IDEA will be used for the implementation of algorithms. -->
 
-
+*Python programming language* and [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=windows) IDE will be used for the implementation of the algorithms.
 
 
 
