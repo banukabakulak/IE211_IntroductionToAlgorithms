@@ -41,7 +41,7 @@ Upon successful completion of the course, students will be able to;
 
 <!--*Java programming language* and [Eclipse](https://www.eclipse.org/downloads/) IDE or [IntelliJ](https://www.jetbrains.com/idea/) IDEA will be used for the implementation of algorithms. -->
 
-*Python programming language* and [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=windows) IDE will be used for the implementation of the algorithms.
+*Python programming language* and [PyCharm Community](https://www.jetbrains.com/pycharm/download/#section=windows) IDE will be used for the implementation of algorithms.
 
 
 
