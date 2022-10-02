@@ -1,9 +1,9 @@
-# IE 211 Lab 1 Codes
+# IE 211 Lab 0 Codes
 
-def Lab1(name):
+def greeting(name):
     print(f'Welcome to IE 211, {name}')
 
 
 if __name__ == '__main__':
-    Lab1('Lab 1')
+    greeting('Lab 0')
 
