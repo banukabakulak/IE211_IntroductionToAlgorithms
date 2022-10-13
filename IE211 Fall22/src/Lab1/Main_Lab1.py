@@ -4,29 +4,27 @@ from Lab1.Animal import Animal
 from Lab1.Cat import Cat
 from Lab1.Dog import Dog
 
-print("Hello world!")
+print("Hello world!!!!")
 
-# ENCAPSULATION: Grouping the properties and the methods, ie., class definition
+# ENCAPSULATION : Grouping the properties and the methods, i.e., class definition
 
 myPet = Animal()
 
 '''
-# Public property updates
-
 myPet.me["name"] = "Kitty"
-myPet.me["id"] = 1484
+myPet.me["id"] = 1564
 
-print(f'The name is {myPet.me["name"]}')
+print(f'The name is {myPet.me["name"]} and id is {myPet.me["id"]}')
 '''
 
-# Private property update => ABSTRACTION , DATA HIDING
+# ABSTRACTION : (1) Data Hiding for Private Data Security, (2) Easy / Efficient User Interface
 
-myPet.setName("Kitty")
-myPet.setID(1484)
+myPet.setName("Pamuk")
+myPet.setID(1648)
 
-print(f'The last digit of the ID is {myPet.getIDLastDigit()}')
+print(f'The last digit of the ID is {myPet.getLastDigit()}')
 
-# INHERITANCE: Parent/Child relationship
+# INHERITANCE : Parent / Child Relationship - Eliminate unnecessary coding
 
 myCat = Cat()
 myDog = Dog()
@@ -36,21 +34,21 @@ myCat.setAge(3)
 myCat.isYoungerThan(5)
 
 myDog.setName("Cango")
-myDog.setID(2021)
-print(f'The last digit of the ID is {myDog.getIDLastDigit()}')
+myDog.setID(2943)
+print(f'The last digit of the ID is {myDog.getLastDigit()}')
 myDog.setGenre("Golden")
 myDog.isGenre("Terrier")
 
-# POLYMORPHISM: The same function but different outcomes
+# POLYMORPHISM : The same function with different outcomes
 
+myPet.speak()
 myCat.speak()
 myDog.speak()
 
 # Reduce code complexity
 
-thePets = [Cat(), Dog()]
+thePets = [Animal(), Cat(), Dog(), Dog(), Cat(), Animal()]
 
 for animal in thePets:
     animal.speak()
-
 
