@@ -1,0 +1,17 @@
+from src.Lab4.Difference import Difference
+
+print("IE 211 Lab 4 Codes...")
+
+array1 = [13, 21, 36, 48, 42, 15]
+array2 = [10, 12, 13, 14, 15, 16]
+
+print("The first array is ")
+print(*array1)
+
+print("The second array is ")
+print(*array2)
+
+print()
+
+myDiff = Difference()
+myDiff.printDifferentElements(array1, array2, True)
