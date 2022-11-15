@@ -13,7 +13,7 @@ class Animal:
     def setID(self, id):
         self.__me["id"] = id
 
-    def getIDLastDigit(self):
+    def getLastDigit(self):
         return self.__me["id"] % 10
 
     def speak(self):
