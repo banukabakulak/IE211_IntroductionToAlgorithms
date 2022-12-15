@@ -1,0 +1,14 @@
+class Search:
+
+    def BinarySearch(self, array, value, l, r):
+
+        while r >= l:
+            m = int((l + r) / 2)
+
+            if value is array[m]:
+                return m
+            elif value < array[m]:
+                r = m - 1
+            else:
+                l = m + 1
+        return -1
