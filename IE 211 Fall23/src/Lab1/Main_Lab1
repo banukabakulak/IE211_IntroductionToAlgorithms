@@ -1,0 +1,41 @@
+from Animal import Animal
+from Cat import Cat
+from Dog import Dog
+
+print("Hello IE 211 Lab 1 :)")
+
+# ENCAPSULATION : Grouping properties and methods, i.e., class definition
+
+myPet = Animal()
+
+'''
+myPet.me["name"] = "Kitty"
+myPet.me["id"] = 43
+
+print(f'The name is {myPet.me["name"]} and id is {myPet.me["id"]}')
+'''
+# ABSTRACTION : Private property and method definition for data hiding/protection/security
+
+myPet.setName("Pamuk")
+myPet.setID(89)
+
+#print(f'The name is {myPet.getName()} and id is {myPet.getID()}')
+print(f'The id is {myPet.getID()}')
+
+# INHERITANCE : Parent/child relationship
+
+myCat = Cat()
+myCat.age = 3
+myCat.isYoungerThan(5)
+
+myDog = Dog()
+myDog.setGenre("Terrier")
+myDog.isGenre("Golden")
+
+# POLYMORPHISM : Same function different outputs
+
+myPet.speak()
+myCat.speak()
+myDog.speak()
+
+print()
