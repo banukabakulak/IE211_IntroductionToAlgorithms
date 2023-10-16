@@ -1,0 +1,14 @@
+from Animal import Animal
+
+class Cat(Animal):
+
+    age = 0
+
+    def isYoungerThan(self, age):
+        if self.age < age:
+            print(f'The cat is younger than {age}')
+        else:
+            print(f'The cat is older than {age}')
+
+    def speak(self):
+        print("Meow :)")
