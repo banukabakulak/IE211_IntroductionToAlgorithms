@@ -1,0 +1,34 @@
+import time
+
+class Subset:
+     # Abstraction is implemented
+     __binVal = []
+     __runTime = 0
+
+     def __Binary(self, n):
+         if n > 1:
+             self.__Binary(int(n/2))
+         self.__binVal.insert(0, n % 2)
+
+     def GenerateSubsets(self, set):
+
+         # self.Binary(12)
+         # print(*self.binVal)
+
+         # start clock
+         self.__runTime = time.time_ns() // 1000000
+
+         setSize = len(set)
+         for i in range(pow(2, setSize)):
+             self.__binVal.clear()
+             self.__Binary(i)
+
+             for j in range(len(self.__binVal)):
+                 if self.__binVal[j] == 1:
+                     print(set[j], end = " ")
+             print()
+
+         # stop clock
+         self.__runTime = time.time_ns() // 1000000 - self.__runTime
+
+         print(f'The runtime is {self.__runTime} milliseconds')
