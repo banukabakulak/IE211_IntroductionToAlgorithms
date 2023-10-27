@@ -1,0 +1,17 @@
+from Subset import Subset
+
+print("IE 211 Lab 3 Codes...")
+
+SIZE = 3
+
+# STEP 1: generate the set elements
+set = []
+for i in range(SIZE):
+     set.append(2*i+1)
+print("The set is")
+print(*set)
+
+# STEP 2: Implement the subset generation algorithm
+# Encapsulation is implemented
+mySubset = Subset()
+mySubset.GenerateSubsets(set)
