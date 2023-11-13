@@ -1,3 +1,5 @@
+from Difference import Difference
+
 print("IE 211 Lab 4 Codes...")
 
 array1 = [13, 21, 36, 48, 42, 15]
