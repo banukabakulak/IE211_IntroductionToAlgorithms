@@ -1,0 +1,51 @@
+import random
+import time
+
+from Sort import Sort
+from Search import Search
+
+print("IE 211 Lab 5 Codes...")
+
+SIZE = 10
+
+# Random Instance Generation
+array = []
+for i in range(SIZE):
+    array.append(random.randint(0, 100))
+
+print("The unsorted array is ")
+print(*array)
+
+# Merge Sort Implementation
+
+# start clock
+runTime = time.time_ns() // 1000000
+
+mergeSort = Sort()
+mergeSort.MergeSort(array, 0, len(array)-1)
+
+#stop clock
+runTime = time.time_ns() // 1000000 - runTime
+
+print(f'Merge Sort runtime is {runTime} milliseconds.')
+print("The sorted array is ")
+print(*array)
+
+# Binary Search Implementation
+
+testValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print("The result of Binary Search is ")
+
+# start clock
+runTime = time.time_ns() // 1000000
+
+mySearch = Search()
+for i in range(len(testValues)):
+    print(mySearch.BinarySearch(array, testValues[i], 0, len(array)-1), end = " ")
+
+#stop clock
+runTime = time.time_ns() // 1000000 - runTime
+
+print()
+print(f'Binary Search runtime is {runTime} milliseconds.')
