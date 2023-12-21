@@ -1,0 +1,37 @@
+import random
+from Knapsack import Knapsack
+
+print("IE 211 Lab 6 Codes...")
+
+SIZE = 4
+MAX_VALUE = 40
+MAX_VOLUME = 30
+
+values = [0] * SIZE
+volumes = [0] * SIZE
+
+total_volume = (MAX_VOLUME // 2) * SIZE
+
+for i in range(SIZE):
+    values[i] = random.randint(0, MAX_VALUE)
+    volumes[i] = random.randint(10, MAX_VOLUME - 1)
+
+print("The values of the items are ")
+print(*values)
+
+print("The volumes of the items are ")
+print(*volumes)
+
+print("The total volume is", total_volume)
+
+myKnapsack = Knapsack()
+# Binary knapsack with two versions, i.e., O(n^2) and O(nlogn)
+myKnapsack.implement_knapsack(values, volumes, total_volume, True, False)
+myKnapsack.implement_knapsack(values, volumes, total_volume, True, True)
+
+# Fractional knapsack with two versions, i.e., O(n^2) and O(nlogn)
+myKnapsack.implement_knapsack(values, volumes, total_volume, False, False)
+myKnapsack.implement_knapsack(values, volumes, total_volume, False, True)
+
+
+
