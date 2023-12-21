@@ -1,211 +1,167 @@
 import time
-from typing import List
-
 
 class Knapsack:
-    class Item:
-        def __init__(self):
-            self.index = 0
-            self.ratio = 0.0
+     class Item:
+         index = -1
+         ratio = -1
 
-        def __lt__(self, other):
-            return self.ratio > other.ratio
+         def __lt__(self, other):
+             return self.ratio > other.ratio
+     
+     x = []
+     runTime = 0
+     LItems = []
 
-    def __init__(self):
-        self.x = []
-        self.runtime = 0
-        self.LItems = []
+     def ImplementBinaryKnapsack_v1(self, values, volumes, totalVolume):
+         remainingVolume = totalVolume
+         totalValue = 0
+         size = len(values)
+         self.x = [0] * size
 
-    def implement_binary_knapsack2(self, values, volumes, total_volume):
-        remaining_volume = total_volume
-        total_value = 0
+         self.runTime = time.time_ns()//1000000
+         while True:
+             best_i = -1
+             best_ratio = -1
 
-        self.x = [0] * len(values)
+             for i in range(size):
+                 curr_ratio = values[i]/volumes[i]
+                 if curr_ratio > best_ratio and self.x[i] == 0:
+                     best_ratio = curr_ratio
+                     best_i = i
+             if best_i == -1:
+                 break
+             elif remainingVolume < volumes[best_i]:
+                 break
+             else:
+                 self.x[best_i] = 1
+                 remainingVolume -= volumes[best_i]
+                 totalValue += values[best_i]
 
-        self.runTime = time.time_ns() // 1000000
+         self.runTime = time.time_ns() // 1000000 - self.runTime
 
-        # calculate the ratios and sort in non-increasing order
-        self.LItems.clear()
-        for i in range(len(self.x)):
-            item = self.Item()
-            item.index = i
-            item.ratio = values[i] * 1.0 / volumes[i]
-            self.LItems.append(item)
+         print("The results for Binary knapsack n2 implementation:")
+         print("The selected items are ")
+         print(*self.x)
+         print("The total value is", totalValue)
+         print("The runtime is ", self.runTime)
 
-        self.LItems.sort()
+     def ImplementBinaryKnapsack_v2(self, values, volumes, totalVolume):
+         remainingVolume = totalVolume
+         totalValue = 0
+         size = len(values)
+         self.x = [0] * size
 
-        for i in range(len(self.x)):
-            curr_index = self.LItems[i].index
-            if self.x[curr_index] == 0:
-                if remaining_volume < volumes[curr_index]:
-                    break
-                else:
-                    self.x[curr_index] = 1
-                    remaining_volume -= volumes[curr_index]
-                    total_value += values[curr_index]
+         self.runTime = time.time_ns()//1000000
+         self.LItems.clear()
+         for i in range(size):
+             item = self.Item()
+             item.index = i
+             item.ratio = values[i] * 1.0 / volumes[i]
+             self.LItems.append(item)
 
-        self.runTime = time.time_ns() // 1000000 - self.runTime
+         self.LItems.sort()
+         #for i in range(size):
+         #    print(self.LItems[i].index, end= " ")
 
-        print()
-        print("The results of the Binary Knapsack v2: ")
-        print("The item selections are ")
-        print(*self.x)
+         for i in range(size):
+             curr_index = self.LItems[i].index
+             if self.x[curr_index] == 0:
+                 if remainingVolume >= volumes[curr_index]:
+                     self.x[curr_index] = 1
+                     remainingVolume -= volumes[curr_index]
+                     totalValue += values[curr_index]
+                 else:
+                     break
+         self.runTime = time.time_ns() // 1000000 - self.runTime
 
-        print()
-        print("Total value is", total_value)
+         print("The results for Binary knapsack nlogn implementation:")
+         print("The selected items are ")
+         print(*self.x)
+         print("The total value is", totalValue)
+         print("The runtime is ", self.runTime)
 
-        print()
-        print("The runtime is", self.runTime)
-
-    def implement_binary_knapsack1(self, values, volumes, total_volume):
-        remaining_volume = total_volume
-        total_value = 0
-
-        self.x = [0] * len(values)
-
-
-        self.runTime = time.time_ns() // 1000000
-
-        while True:
-            best_i = -1
-            best_ratio = -1
-
-            for i in range(len(self.x)):
-                if self.x[i] == 0:
-                    ratio = values[i] * 1.0 / volumes[i]
-
-                    if ratio > best_ratio:
-                        best_ratio = ratio
-                        best_i = i
-
-            if best_i == -1:
-                break
-            elif remaining_volume < volumes[best_i]:
-                break
-            else:
-                self.x[best_i] = 1
-                remaining_volume -= volumes[best_i]
-                total_value += values[best_i]
-
-        self.runtime = time.time_ns() // 1000000 - self.runTime
-
-        print()
-        print("The results of the Binary Knapsack v1: ")
-        print("The item selections are ")
-        print(*self.x)
-
-        print()
-        print("Total value is", total_value)
-
-        print()
-        print("The runtime is", self.runtime)
-
-    def implement_binary_knapsack(self, values, volumes, total_volume, is_efficient):
-        if is_efficient:
-            self.implement_binary_knapsack2(values, volumes, total_volume)
-        else:
-            self.implement_binary_knapsack1(values, volumes, total_volume)
-
-    def implement_fractional_knapsack2(self, values, volumes, total_volume):
-        remaining_volume = total_volume
-        total_value = 0
-
-        self.x = [0] * len(values)
-
-        self.runtime = time.time_ns() // 1000000
-
-        # calculate the ratios and sort in non-increasing order
-        self.LItems.clear()
-        for i in range(len(self.x)):
-            item = self.Item()
-            item.index = i
-            item.ratio = values[i] * 1.0 / volumes[i]
-            self.LItems.append(item)
-
-        self.LItems.sort()
-
-        for i in range(len(self.x)):
-            curr_index = self.LItems[i].index
-            if self.x[curr_index] == 0:
-                if remaining_volume < volumes[curr_index]:
-                    self.x[curr_index] = remaining_volume / volumes[curr_index]
-                    remaining_volume = 0
-                    total_value += values[curr_index] * self.x[curr_index]
-                    break
-                else:
-                    self.x[curr_index] = 1
-                    remaining_volume -= volumes[curr_index]
-                    total_value += values[curr_index]
-
-        self.runtime = time.time_ns() // 1000000 - self.runTime
-
-        print()
-        print("The results of the Fractional Knapsack v2: ")
-        print("The item selections are ")
-        print(*self.x)
-
-        print()
-        print("Total value is", total_value)
-
-        print()
-        print("The runtime is", self.runTime)
-
-    def implement_fractional_knapsack1(self, values, volumes, total_volume):
-        remaining_volume = total_volume
-        total_value = 0
-
-        self.x = [0] * len(values)
-
-        self.runtime = time.time_ns() // 1000000
-
-        while remaining_volume > 0:
-            best_i = -1
-            best_ratio = -1
-
-            for i in range(len(self.x)):
-                if self.x[i] == 0:
-                    ratio = values[i] * 1.0 / volumes[i]
-
-                    if ratio > best_ratio:
-                        best_ratio = ratio
-                        best_i = i
-
-            if best_i == -1:
-                break
-            elif remaining_volume >= volumes[best_i]:
-                self.x[best_i] = 1
-                remaining_volume -= volumes[best_i]
-                total_value += values[best_i]
-            else:
-                self.x[best_i] = remaining_volume / volumes[best_i]
-                remaining_volume = 0
-                total_value += values[best_i] * self.x[best_i]
-
-        self.runtime = time.time_ns() // 1000000 - self.runTime
-
-        print()
-        print("The results of the Fractional Knapsack v1: ")
-        print("The item selections are ")
-        print(" ".join(map(str, self.x)))
-
-        print()
-        print("Total value is", total_value)
-
-        print()
-        print("The runtime is", self.runtime)
-
-    def implement_fractional_knapsack(self, values, volumes, total_volume, is_efficient):
-        if is_efficient:
-            self.implement_fractional_knapsack2(values, volumes, total_volume)
-        else:
-            self.implement_fractional_knapsack1(values, volumes, total_volume)
-
-    def implement_knapsack(self, values, volumes, total_volume, is_binary, is_efficient):
-        if is_binary:
-            self.implement_binary_knapsack(values, volumes, total_volume, is_efficient)
-        else:
-            self.implement_fractional_knapsack(values, volumes, total_volume, is_efficient)
+     def ImplementBinaryKnapsack(self, values, volumes, totalVolume, isEfficient):
+         if not isEfficient:
+             self.ImplementBinaryKnapsack_v1(values, volumes, totalVolume)
+         else:
+             self.ImplementBinaryKnapsack_v2(values, volumes, totalVolume)
 
 
+     def ImplementFractionalKnapsack_v1(self, values, volumes, totalVolume):
+         remainingVolume = totalVolume
+         totalValue = 0
+         size = len(values)
+         self.x = [0] * size
 
+         self.runTime = time.time_ns()//1000000
+         while True:
+             best_i = -1
+             best_ratio = -1
 
+             for i in range(size):
+                 curr_ratio = values[i]/volumes[i]
+                 if curr_ratio > best_ratio and self.x[i] == 0:
+                     best_ratio = curr_ratio
+                     best_i = i
+             if best_i == -1:
+                 break
+             elif remainingVolume < volumes[best_i]:
+                 self.x[best_i] = remainingVolume / volumes[best_i]
+                 remainingVolume -= 0
+                 totalValue += values[best_i] * self.x[best_i]
+             else:
+                 self.x[best_i] = 1
+                 remainingVolume -= volumes[best_i]
+                 totalValue += values[best_i]
+
+         self.runTime = time.time_ns() // 1000000 - self.runTime
+
+         print("The results for Fractional knapsack n2 implementation:")
+         print("The selected items are ")
+         print(*self.x)
+         print("The total value is", totalValue)
+         print("The runtime is ", self.runTime)
+
+     def ImplementFractionalKnapsack_v2(self, values, volumes, totalVolume):
+         remainingVolume = totalVolume
+         totalValue = 0
+         size = len(values)
+         self.x = [0] * size
+
+         self.runTime = time.time_ns()//1000000
+         self.LItems.clear()
+         for i in range(size):
+             item = self.Item()
+             item.index = i
+             item.ratio = values[i] * 1.0 / volumes[i]
+             self.LItems.append(item)
+
+         self.LItems.sort()
+         # for i in range(size):
+         #     print(self.LItems[i].index, end= " ")
+
+         for i in range(size):
+             curr_index = self.LItems[i].index
+             if self.x[curr_index] == 0:
+                 if remainingVolume >= volumes[curr_index]:
+                     self.x[curr_index] = 1
+                     remainingVolume -= volumes[curr_index]
+                     totalValue += values[curr_index]
+                 else:
+                     self.x[curr_index] = remainingVolume / volumes[curr_index]
+                     remainingVolume -= 0
+                     totalValue += values[curr_index] * self.x[curr_index]
+                     break
+         self.runTime = time.time_ns() // 1000000 - self.runTime
+
+         print("The results for Fractional knapsack nlogn implementation:")
+         print("The selected items are ")
+         print(*self.x)
+         print("The total value is", totalValue)
+         print("The runtime is ", self.runTime)
+
+     def ImplementFractionalKnapsack(self, values, volumes, totalVolume, isEfficient):
+         if not isEfficient:
+             self.ImplementFractionalKnapsack_v1(values, volumes, totalVolume)
+         else:
+             self.ImplementFractionalKnapsack_v2(values, volumes, totalVolume)
