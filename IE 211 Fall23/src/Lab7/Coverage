@@ -1,45 +1,37 @@
 class Coverage:
 
-    def isUndercoverage(self, f):
-        return any(x > 0 for x in f)
+     def isUnderCoverage(self, f):
+         return any(x > 0 for x in f)
+     def ImplementAlgorithm(self, f, sets, p):
+         setCollection = [0]*len(sets)
+         totalPrice = 0
 
-    def ImplementAlgorithm(self, f, sets, p):
-        set_collection = [0] * len(sets)
-        total_price = 0
+         while self.isUnderCoverage(f):
+             best_i = -1
+             best_ratio = -1
 
-        while self.isUndercoverage(f):
-            best_i = -1
-            best_ratio = -1
+             for i in range(len(sets)):
+                 if setCollection[i] == 0:
+                     totalUndercoverage = sum(f[j-1] for j in sets[i])
 
-            for i in range(len(set_collection)):
-                if set_collection[i] == 0:
-                    total_undercoverage = sum(f[j - 1] for j in sets[i])
+                     ratio = totalUndercoverage / p[i]
 
-                    ratio = total_undercoverage / p[i]
+                     if ratio > best_ratio:
+                         best_ratio = ratio
+                         best_i = i
 
-                    if ratio > best_ratio:
-                        best_ratio = ratio
-                        best_i = i
+             if best_i == -1:
+                 break
+             else:
+                 setCollection[best_i] = 1
+                 totalPrice += p[best_i]
 
-            if best_i == -1:
-                break
-            else:
-                total_price += p[best_i]
-                set_collection[best_i] = 1
-
-                best_set = sets[best_i]
-
-                for j in best_set:
-                    if f[j - 1] > 0:
-                        f[j - 1] -= 1
-
-        print("\nThe set selections are ")
-        print(*set_collection)
-
-        print("\nThe undercoverage values are ")
-        print(*f)
-
-        print("\nThe total price is", total_price)
+                 for j in sets[best_i]:
+                     if f[j-1] > 0:
+                         f[j-1] -= 1
 
 
+         print("\nThe subset selection is ", *setCollection)
+         print("\nThe total price is ", totalPrice)
 
+         print("\nThe undercoverage is ",*f)
