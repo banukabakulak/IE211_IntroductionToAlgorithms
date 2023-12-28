@@ -1,12 +1,13 @@
 class Coverage:
 
-     def isUnderCoverage(self, f):
+     def __isUnderCoverage(self, f):
          return any(x > 0 for x in f)
+
      def ImplementAlgorithm(self, f, sets, p):
          setCollection = [0]*len(sets)
          totalPrice = 0
 
-         while self.isUnderCoverage(f):
+         while self.__isUnderCoverage(f):
              best_i = -1
              best_ratio = -1
 
